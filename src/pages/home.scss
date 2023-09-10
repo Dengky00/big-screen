@@ -4,16 +4,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-size: 1.5rem;
   background: #010310;
-  color: #e6e6e6;
 
   header {
     height: px(99);
     display: grid;
     grid: 1fr/1fr 1fr 1fr;
-    border-bottom: 1px solid white;
-    box-shadow: 0 0 2px 0 white;
+    box-shadow:0px 0px 10px fade-out($color: #58b5e7, $amount: 0.5) inset;
+    color: fade-out(#4e93d4,0.3);
+    
 
     > .date {
       align-self: center;
@@ -23,6 +22,7 @@
     > .title {
       place-self: center;
       font-size: 2rem;
+      color: #e6e6e6;
     }
 
     > .city {
@@ -54,6 +54,7 @@
       position: relative;
       box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
       background: #0c1139;
+
       &::before {
         content: "";
         position: absolute;
@@ -62,6 +63,7 @@
         bottom: 0;
         top: 0;
         border-radius: 4px;
+        //利用box阴影叠加制作div边框样式
         box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f,
           0 17px 0 -16px #0e325f, 0 -17px 0 -16px #0e325f, 9px 0 0 -8px #0d4483,
           -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483, 0 -9px 0 -8px #0d4483;
