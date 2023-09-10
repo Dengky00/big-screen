@@ -3,6 +3,7 @@ import local from "../assets/local.svg";
 import { useEffect, useState } from "react";
 import { Chart1 } from "../components/Chart-1";
 import { Chart2 } from "../components/Chart-2";
+import { Chart3 } from "../components/Chart-3";
 
 export const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -40,7 +41,9 @@ export const Home = () => {
           <Chart1 />
           <Chart2 />
         </section>
-        <section className="bordered section2"></section>
+        <section className="section2">
+          <Chart3 />
+        </section>
         <section className="bordered section3"></section>
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>
