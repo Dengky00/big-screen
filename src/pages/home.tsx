@@ -36,7 +36,7 @@ export const Home = () => {
         </div>
       </header>
       <main>
-        <section className="bordered section1">
+        <section className="section1">
           <Chart1 />
           <Chart2 />
         </section>
@@ -45,6 +45,7 @@ export const Home = () => {
         <section className="bordered section4"></section>
         <section className="bordered section5"></section>
       </main>
+      <footer>&copy; DKY 2020-{currentTime.getFullYear()}</footer>
     </div>
   );
 };
