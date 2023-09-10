@@ -72,9 +72,11 @@ button:focus-visible {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background: #00020b;
+}
 #root {
   margin: 0 auto;
-  background: lightgreen;
   display: flex;
   flex-direction: column;
 }
