@@ -80,6 +80,7 @@
       background: rgba($color: #0f113a, $alpha: 0.7);
 
       &::before {
+        pointer-events: none;
         content: "";
         position: absolute;
         left: 0;
