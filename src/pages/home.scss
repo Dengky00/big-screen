@@ -4,7 +4,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: #010310;
   color: #e6e6e6;
   font-size: px(16);
 
@@ -13,7 +12,25 @@
     display: grid;
     grid: 1fr/1fr 1fr 1fr;
     box-shadow: 0px 0px 10px fade-out($color: #58b5e7, $amount: 0.5) inset;
-    color: fade-out(#4e93d4, 0.3);
+    color: fade-out(#b0cfed, 0.3);
+
+    border: 1px solid #0764bc;
+    border-radius: 4px;
+    position: relative;
+    background: rgba($color: #0c1139, $alpha: 0.5);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      border-radius: 4px;
+      //利用box阴影叠加制作div边框样式
+      box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f,
+        0 17px 0 -16px #0e325f, 0 -17px 0 -16px #0e325f, 9px 0 0 -8px #0d4483,
+        -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483, 0 -9px 0 -8px #0d4483;
+    }
 
     > .date {
       align-self: center;
@@ -60,7 +77,7 @@
       border-radius: 4px;
       position: relative;
       box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
-      background: #0c1139;
+      background: rgba($color: #0c1139, $alpha: 0.7);
 
       &::before {
         content: "";
@@ -151,12 +168,28 @@
 
   > footer {
     height: px(68);
-    border: 1px solid #0d2d59;
+    border: 1px solid #0764bc;
     margin: px(20) 0 1px;
     border-radius: 4px;
-    background: #0c0d2b;
+    background: rgba($color: #0c1139, $alpha: 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: relative;
+    box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      border-radius: 4px;
+      //利用box阴影叠加制作div边框样式
+      box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f,
+        0 17px 0 -16px #0e325f, 0 -17px 0 -16px #0e325f, 9px 0 0 -8px #0d4483,
+        -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483, 0 -9px 0 -8px #0d4483;
+    }
   }
 }
