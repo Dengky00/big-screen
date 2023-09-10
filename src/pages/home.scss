@@ -2,6 +2,29 @@
 
 .home {
   header {
+    * {
+      border: 1px solid red;
+    }
     height: px(99);
+    display: grid;
+    grid: 1fr/1fr 1fr 1fr;
+    .date {
+        align-self: center;
+        padding-left: 2rem;
+    }
+    .title {
+      place-self: center;
+      font-size: 2rem;
+    }
+    .city {
+        align-self: center;
+        text-align: end;
+        padding-right: 2rem;
+      .local {
+        width: 1.5rem;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+      }
+    }
   }
 }
