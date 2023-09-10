@@ -358,19 +358,26 @@
     }
   }
 
-  .发案趋势,
-  .案发时段 {
-    height: px(363);
-  }
-
   .作案手段 {
     > table {
+      margin-top: px(8);
+      thead {
+        th {
+          height: px(60);
+          box-shadow: inset 0 0 px(60) 0 #1f3d85;
+        }
+      }
       tbody {
         td {
-          height: px(26);
+          height: px(24);
         }
       }
     }
+  }
+
+  .发案趋势,
+  .案发时段 {
+    height: px(363);
   }
 
   .破获排名 {
