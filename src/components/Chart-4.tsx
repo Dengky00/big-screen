@@ -69,6 +69,7 @@ export const Chart4 = () => {
       }
       setEchart(newArray);
     }, 3000);
+    return ()=>clearInterval(timer)
   }, []);
 
   return (
