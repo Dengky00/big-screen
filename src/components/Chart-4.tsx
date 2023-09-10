@@ -1,12 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import { createEchartsOptions } from "../shared/create-echarts-options";
 import { px } from "../shared/px";
+import { EChartsType } from "echarts";
 
 export const Chart4 = () => {
   const divRef = useRef(null);
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
+  let myChart: EChartsType;
+  let array = [
+    0.75, 0.53, 0.31, 0.63, 0.44, 0.65, 0.26, 0.18, 0.21, 0.59, 0.77, 0.46,
+    0.35,
+  ];
+
+  const setEchart = (array: number[]) => {
     myChart.setOption(
       createEchartsOptions({
         xAxis: {
@@ -29,10 +35,7 @@ export const Chart4 = () => {
         series: [
           {
             type: "line",
-            data: [
-              0.15, 0.13, 0.11, 0.13, 0.14, 0.15, 0.16, 0.18, 0.21, 0.19, 0.17,
-              0.16, 0.15,
-            ],
+            data: array,
             symbol: "circle",
             symbolSize: px(12),
             lineStyle: { width: px(2) },
@@ -52,6 +55,20 @@ export const Chart4 = () => {
         ],
       })
     );
+  };
+  useEffect(() => {
+    myChart = echarts.init(divRef.current);
+    setEchart(array);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      let newArray = [0.78];
+      for (let i = 0; i < 12; i++) {
+        newArray.push(Math.round(Math.random() * 80) / 100);
+      }
+      setEchart(newArray);
+    }, 3000);
   }, []);
 
   return (
