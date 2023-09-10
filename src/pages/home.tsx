@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Chart1 } from "../components/Chart-1";
 import { Chart2 } from "../components/Chart-2";
 import { Chart3 } from "../components/Chart-3";
+import { Chart4 } from "../components/Chart-4";
 
 export const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -43,6 +44,7 @@ export const Home = () => {
         </section>
         <section className="section2">
           <Chart3 />
+          <Chart4 />
         </section>
         <section className="bordered section3"></section>
         <section className="bordered section4"></section>
