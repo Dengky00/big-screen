@@ -5,14 +5,14 @@
   display: flex;
   flex-direction: column;
   background: #010310;
+  color: #e6e6e6;
 
   header {
     height: px(99);
     display: grid;
     grid: 1fr/1fr 1fr 1fr;
-    box-shadow:0px 0px 10px fade-out($color: #58b5e7, $amount: 0.5) inset;
-    color: fade-out(#4e93d4,0.3);
-    
+    box-shadow: 0px 0px 10px fade-out($color: #58b5e7, $amount: 0.5) inset;
+    color: fade-out(#4e93d4, 0.3);
 
     > .date {
       align-self: center;
@@ -49,6 +49,10 @@
     padding-top: px(30);
 
     > section {
+      text-align: center;
+    }
+
+    > .bordered {
       border: 1px solid #0764bc;
       border-radius: 4px;
       position: relative;
@@ -72,6 +76,27 @@
 
     > .section1 {
       grid-area: box1;
+
+      > .管辖统计 {
+        height: px(315);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+          flex-shrink: 0;
+          border: 1px solid #0a5299;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          font-size: px(22);
+          line-height: px(24);
+          padding: px(10) px(28);
+          text-shadow: 0 0 px(3) white;
+        }
+        .chart {
+          flex: 1;
+          width: 100%;
+        }
+      }
     }
 
     > .section2 {
