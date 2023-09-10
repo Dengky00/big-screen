@@ -13,6 +13,8 @@ import { Chart9 } from "../components/Chart-9";
 import { Chart10 } from "../components/Chart-10";
 import { Chart11 } from "../components/Chart-11";
 import { Chart12 } from "../components/Chart12";
+import { Chart13 } from "../components/Chart13";
+import { Chart14 } from "../components/Chart14";
 
 export const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -80,10 +82,12 @@ export const Home = () => {
             <h2>案发街道统计</h2>
             <div className="charts">
               <Chart12 />
+              <Chart13 />
             </div>
           </div>
           <div className="bordered row3 作案手段">
             <h2>作案手段分析</h2>
+            <Chart14 />
           </div>
         </section>
       </main>
