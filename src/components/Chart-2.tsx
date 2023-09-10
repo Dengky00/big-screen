@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react";
 import * as echarts from "echarts";
 import { createEchartsOptions } from "../shared/create-echarts-options";
+import { EChartsType } from "echarts";
 
 export const Chart2 = () => {
   const divRef = useRef(null);
-  useEffect(() => {
-    var myChart = echarts.init(divRef.current);
+  let myChart: EChartsType;
+  const setEchart = (data: any) => {
     myChart.setOption(
       createEchartsOptions({
         xAxis: {
@@ -17,17 +18,7 @@ export const Chart2 = () => {
         yAxis: {
           type: "category",
           axisTick: { show: false },
-          data: [
-            "城关区公安局",
-            "七里河区公安局",
-            "西固区公安局",
-            "安宁区公安局",
-            "红古区公安局",
-            "永登县公安局",
-            "皋兰县公安局",
-            "榆中县公安局",
-            "新区公安局",
-          ],
+          data: data.map((i: any) => i.name),
           axisLabel: {
             formatter(val: string) {
               return val.replace("公安局", "\n公安局");
@@ -36,38 +27,38 @@ export const Chart2 = () => {
         },
         series: [
           {
-            name: "2011年",
+            name: "2022年",
             type: "bar",
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            data: data.map((i: any) => i[2022]),
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
                   {
                     offset: 0,
-                    color: "#2034f9",
+                    color: "#2034F9",
                   },
                   {
                     offset: 1,
-                    color: "#04a1ff",
+                    color: "#04a1FF",
                   },
                 ]),
               },
             },
           },
           {
-            name: "2012年",
+            name: "2023年",
             type: "bar",
-            data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+            data: data.map((i: any) => i[2023]),
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
                   {
                     offset: 0,
-                    color: "#b92ae8",
+                    color: "#B92AE8",
                   },
                   {
                     offset: 1,
-                    color: "#6773e7",
+                    color: "#6773E7",
                   },
                 ]),
               },
@@ -76,6 +67,65 @@ export const Chart2 = () => {
         ],
       })
     );
+  };
+
+  const data = [
+    { name: "崇川区公安局", 2022: 1, 2023: 2 },
+    { name: "通州区公安局", 2022: 3, 2023: 4 },
+    { name: "海门区公安局", 2022: 5, 2023: 3 },
+    { name: "海安市公安局", 2022: 2, 2023: 1 },
+    { name: "启东市公安局", 2022: 6, 2023: 6 },
+    { name: "如皋市公安局", 2022: 4, 2023: 7 },
+    { name: "如东县公安局", 2022: 7, 2023: 5 },
+  ];
+  useEffect(() => {
+    myChart = echarts.init(divRef.current);
+    setEchart(data);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const newData = [
+        {
+          name: "崇川区公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "通州区公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "海门区公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "海安市公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "启东市公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "如皋市公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+        {
+          name: "如东县公安局",
+          2022: Math.floor(Math.random() * 7) + 1,
+          2023: Math.floor(Math.random() * 7) + 1,
+        },
+      ];
+      setEchart(newData);
+    }, 3000);
+
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -83,8 +133,8 @@ export const Chart2 = () => {
       <h2>案件破获排名</h2>
       <div ref={divRef} className="chart" />
       <div className="legend">
-        <span className="first" /> 破案排名1
-        <span className="second" /> 破案排名2
+        <span className="first" /> 今年
+        <span className="second" /> 去年
       </div>
     </div>
   );
